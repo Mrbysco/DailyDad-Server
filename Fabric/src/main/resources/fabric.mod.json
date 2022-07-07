@@ -27,7 +27,6 @@
       ]
     },
     "mixins": [
-      "dailydad_server.mixins.json",
 	  "dailydad_server.fabric.mixins.json"
     ],
   

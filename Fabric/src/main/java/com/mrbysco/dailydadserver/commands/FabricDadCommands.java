@@ -7,7 +7,7 @@ import com.mrbysco.dailydadserver.platform.Services;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 
 public class FabricDadCommands {
 	public static void initializeCommands(CommandDispatcher<CommandSourceStack> dispatcher) {
@@ -19,7 +19,7 @@ public class FabricDadCommands {
 
 	private static int sendJoke(CommandContext<CommandSourceStack> ctx) {
 		Services.PLATFORM.getJokeAsync((joke, component) -> {
-			ctx.getSource().sendSuccess(new TextComponent("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component), false);
+			ctx.getSource().sendSuccess(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component), false);
 		});
 		return 0;
 	}

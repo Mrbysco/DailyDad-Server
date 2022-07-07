@@ -8,7 +8,8 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.minecraft.commands.Commands.CommandSelection;
 import net.minecraft.world.InteractionResult;
 
 import java.io.IOException;
@@ -63,8 +64,8 @@ public class DailyDadFabric implements ModInitializer {
 			Constants.LOGGER.error("Failed to create filesystem watcher for configs", e);
 		}
 
-		CommandRegistrationCallback.EVENT.register((commandDispatcher, dedicated) -> {
-			if (dedicated) {
+		CommandRegistrationCallback.EVENT.register((commandDispatcher, registryAccess, environment) -> {
+			if (environment == CommandSelection.DEDICATED) {
 				FabricDadCommands.initializeCommands(commandDispatcher);
 			}
 		});
