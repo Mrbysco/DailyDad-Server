@@ -42,11 +42,11 @@ public class DailyDadForge {
 	}
 
 	public void onLoggedIn(PlayerLoggedInEvent event) {
-		JokeHandler.onLoggedIn(event.getPlayer());
+		JokeHandler.onLoggedIn(event.getEntity());
 	}
 
 	public void onPlayerRespawn(PlayerRespawnEvent event) {
-		JokeHandler.onPlayerRespawn(event.getPlayer(), event.isEndConquered());
+		JokeHandler.onPlayerRespawn(event.getEntity(), event.isEndConquered());
 	}
 
 	public void onCommandRegister(RegisterCommandsEvent event) {
