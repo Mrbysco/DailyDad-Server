@@ -1,4 +1,5 @@
-[![build](https://github.com/Mrbysco/DailyDad-server/actions/workflows/build.yml/badge.svg)](https://github.com/Mrbysco/DailyDad-server/actions/workflows/build.yml) [![](http://cf.way2muchnoise.eu/versions/596992.svg)](https://www.curseforge.com/minecraft/mc-mods/daily-dad-server)
+[![build](https://github.com/Mrbysco/DailyDad-server/actions/workflows/build.yml/badge.svg)](https://github.com/Mrbysco/DailyDad-server/actions/workflows/build.yml) 
+[![](http://cf.way2muchnoise.eu/versions/596992.svg)](https://www.curseforge.com/minecraft/mc-mods/daily-dad-server)
 
 # Daily Dad - Server #
 
