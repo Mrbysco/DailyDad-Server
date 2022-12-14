@@ -5,8 +5,8 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.entity.player.Player;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 
 public class JokeHandler {
 	private static MutableComponent joke = null;
