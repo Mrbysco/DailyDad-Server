@@ -7,7 +7,7 @@ import java.util.List;
 public interface IPlatformHelper {
 
 	/**
-	 * Gets the internal database of jokes for in case no connection is available.
+	 * Get's the internal database of jokes for in case no connection is available.
 	 *
 	 * @return A list of jokes from the config
 	 */
