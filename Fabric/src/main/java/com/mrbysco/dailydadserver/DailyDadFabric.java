@@ -26,8 +26,6 @@ public class DailyDadFabric implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		CommonClass.init();
-
 		ConfigHolder<JokeConfig> holder = AutoConfig.register(JokeConfig.class, Toml4jConfigSerializer::new);
 		config = holder.getConfig();
 		try {

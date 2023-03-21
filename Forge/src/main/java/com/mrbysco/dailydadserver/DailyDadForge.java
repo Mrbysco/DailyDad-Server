@@ -26,8 +26,6 @@ public class DailyDadForge {
 		ModLoadingContext.get().registerConfig(Type.COMMON, JokeConfig.serverSpec);
 		eventBus.register(JokeConfig.class);
 
-		CommonClass.init();
-
 		MinecraftForge.EVENT_BUS.addListener(this::onCommandRegister);
 
 		//Make sure the mod being absent on client side does not cause the server to be displayed as incompatible

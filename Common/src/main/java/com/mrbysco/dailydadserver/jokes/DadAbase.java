@@ -23,7 +23,7 @@ public class DadAbase {
 	private static final Random random = new Random();
 	private static final String DAD_JOKE_URL = "https://icanhazdadjoke.com/";
 
-	public static HttpClient CLIENT = HttpClient.newBuilder().connectTimeout(Duration.ofMillis(5 * 1000)).version(HttpClient.Version.HTTP_2).build();
+	public static final HttpClient CLIENT = HttpClient.newBuilder().connectTimeout(Duration.ofMillis(5 * 1000)).version(HttpClient.Version.HTTP_2).build();
 
 	public static String getDadJoke() {
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(DAD_JOKE_URL))
