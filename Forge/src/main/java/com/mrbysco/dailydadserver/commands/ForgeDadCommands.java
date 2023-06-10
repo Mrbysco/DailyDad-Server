@@ -19,7 +19,7 @@ public class ForgeDadCommands {
 
 	private static int sendJoke(CommandContext<CommandSourceStack> ctx) {
 		Services.PLATFORM.getJokeAsync((joke, component) -> {
-			ctx.getSource().sendSuccess(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component), false);
+			ctx.getSource().sendSuccess(() -> Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component), false);
 		});
 		return 0;
 	}

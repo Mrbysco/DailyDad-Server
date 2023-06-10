@@ -9,19 +9,15 @@ import org.jetbrains.annotations.Nullable;
 public class JokeHandler {
 	public static void onLoggedIn(@Nullable Player player) {
 		if (player != null) {
-			Services.PLATFORM.getJokeAsync((joke, component) -> {
-				player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component));
-			});
-			//Reset
+			Services.PLATFORM.getJokeAsync((joke, component) ->
+					player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component)));
 		}
 	}
 
 	public static void onPlayerRespawn(Player player, boolean endConquered) {
 		if (Services.PLATFORM.getJokeUponRespawn() && !endConquered) {
-			Services.PLATFORM.getJokeAsync((joke, component) -> {
-				player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component));
-			});
-			//Reset
+			Services.PLATFORM.getJokeAsync((joke, component) ->
+					player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component)));
 		}
 	}
 }
