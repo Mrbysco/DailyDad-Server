@@ -1,21 +1,19 @@
 package com.mrbysco.dailydadserver.config;
 
 import com.mrbysco.dailydadserver.Constants;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
-import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.event.config.ModConfigEvent;
+import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
 
 public class JokeConfig {
 	public static class Server {
-		public final ConfigValue<List<? extends String>> internal_dadabase;
-		public final BooleanValue jokeUponRespawn;
+		public final ModConfigSpec.ConfigValue<List<? extends String>> internal_dadabase;
+		public final ModConfigSpec.BooleanValue jokeUponRespawn;
 
-		Server(ForgeConfigSpec.Builder builder) {
+		Server(ModConfigSpec.Builder builder) {
 			builder.comment("Server settings")
 					.push("server");
 
@@ -65,11 +63,11 @@ public class JokeConfig {
 		}
 	}
 
-	public static final ForgeConfigSpec serverSpec;
+	public static final ModConfigSpec serverSpec;
 	public static final Server SERVER;
 
 	static {
-		final Pair<Server, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Server::new);
+		final Pair<Server, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Server::new);
 		serverSpec = specPair.getRight();
 		SERVER = specPair.getLeft();
 	}
