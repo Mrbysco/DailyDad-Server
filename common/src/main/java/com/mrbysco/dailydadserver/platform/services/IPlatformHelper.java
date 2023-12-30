@@ -21,7 +21,7 @@ public interface IPlatformHelper {
 	boolean getJokeUponRespawn();
 
 	/**
-	 * Get's a joke from the online dadabase (Asynchronous)
+	 * Gets a joke from the online dadabase (Asynchronous)
 	 *
 	 * @param resolved
 	 */

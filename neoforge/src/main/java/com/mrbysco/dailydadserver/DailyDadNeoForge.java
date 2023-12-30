@@ -9,7 +9,6 @@ import net.neoforged.fml.IExtensionPoint.DisplayTest;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig.Type;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -19,8 +18,7 @@ import net.neoforged.neoforge.network.NetworkConstants;
 @Mod(Constants.MOD_ID)
 public class DailyDadNeoForge {
 
-	public DailyDadNeoForge() {
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+	public DailyDadNeoForge(IEventBus eventBus) {
 		ModLoadingContext.get().registerConfig(Type.COMMON, JokeConfig.serverSpec);
 		eventBus.register(JokeConfig.class);
 
