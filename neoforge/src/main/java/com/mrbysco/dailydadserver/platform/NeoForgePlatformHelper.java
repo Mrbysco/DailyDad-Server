@@ -7,7 +7,7 @@ import com.mrbysco.dailydadserver.platform.services.IPlatformHelper;
 
 import java.util.List;
 
-public class ForgePlatformHelper implements IPlatformHelper {
+public class NeoForgePlatformHelper implements IPlatformHelper {
 
 	@Override
 	public List<? extends String> getInternalDadabase() {
