@@ -1,1 +1,1 @@
-* Fix config issue
+* Fix issue where players logging in don't get send a joke
