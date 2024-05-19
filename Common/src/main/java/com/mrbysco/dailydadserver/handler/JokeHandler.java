@@ -12,7 +12,6 @@ public class JokeHandler {
 			Services.PLATFORM.getJokeAsync((joke, component) -> {
 				player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component));
 			});
-			//Reset
 		}
 	}
 
@@ -21,7 +20,6 @@ public class JokeHandler {
 			Services.PLATFORM.getJokeAsync((joke, component) -> {
 				player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component));
 			});
-			//Reset
 		}
 	}
 }
