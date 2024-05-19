@@ -1,1 +1,1 @@
-* Initial update to 1.20
+* Fix issue where joining players were not entertained by a joke
