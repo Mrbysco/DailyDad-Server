@@ -3,13 +3,11 @@ package com.mrbysco.dailydadserver;
 import com.mrbysco.dailydadserver.commands.ForgeDadCommands;
 import com.mrbysco.dailydadserver.config.JokeConfig;
 import com.mrbysco.dailydadserver.handler.JokeHandler;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.IExtensionPoint.DisplayTest;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -27,16 +25,13 @@ public class DailyDadForge {
 		eventBus.register(JokeConfig.class);
 
 		MinecraftForge.EVENT_BUS.addListener(this::onCommandRegister);
+		MinecraftForge.EVENT_BUS.addListener(this::onLoggedIn);
+		MinecraftForge.EVENT_BUS.addListener(this::onPlayerRespawn);
 
 		//Make sure the mod being absent on client side does not cause the server to be displayed as incompatible
 		ModLoadingContext.get().registerExtensionPoint(DisplayTest.class, () ->
 				new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY,
 						(remoteVersionString, networkBool) -> true));
-
-		DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
-			MinecraftForge.EVENT_BUS.addListener(this::onLoggedIn);
-			MinecraftForge.EVENT_BUS.addListener(this::onPlayerRespawn);
-		});
 	}
 
 	public void onLoggedIn(PlayerLoggedInEvent event) {
