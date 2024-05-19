@@ -1,0 +1,1 @@
+* Fix Jokes not being told to players joining the server
