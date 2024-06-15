@@ -13,7 +13,7 @@ import java.util.List;
 public class JokeConfig implements ConfigData {
 
 	@CollapsibleObject
-	public Server server = new Server();
+	public final Server server = new Server();
 
 	public static class Server {
 		@Comment("The internal dad-abase of jokes for in case the mod is unable to reach the API")

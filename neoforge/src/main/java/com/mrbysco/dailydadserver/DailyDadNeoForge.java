@@ -17,14 +17,12 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEven
 public class DailyDadNeoForge {
 
 	public DailyDadNeoForge(IEventBus eventBus, Dist dist, ModContainer container) {
-		if (dist.isDedicatedServer()) {
-			container.registerConfig(Type.COMMON, JokeConfig.serverSpec);
-			eventBus.register(JokeConfig.class);
+		container.registerConfig(Type.COMMON, JokeConfig.serverSpec);
+		eventBus.register(JokeConfig.class);
 
-			NeoForge.EVENT_BUS.addListener(this::onCommandRegister);
-			NeoForge.EVENT_BUS.addListener(this::onLoggedIn);
-			NeoForge.EVENT_BUS.addListener(this::onPlayerRespawn);
-		}
+		NeoForge.EVENT_BUS.addListener(this::onCommandRegister);
+		NeoForge.EVENT_BUS.addListener(this::onLoggedIn);
+		NeoForge.EVENT_BUS.addListener(this::onPlayerRespawn);
 	}
 
 	public void onLoggedIn(PlayerLoggedInEvent event) {
