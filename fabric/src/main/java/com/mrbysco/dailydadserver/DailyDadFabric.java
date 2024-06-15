@@ -7,6 +7,7 @@ import com.mrbysco.dailydadserver.handler.JokeHandler;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.ConfigHolder;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
+import net.fabricmc.api.DedicatedServerModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.Commands.CommandSelection;
@@ -20,7 +21,7 @@ import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
 
-public class DailyDadFabric implements ModInitializer {
+public class DailyDadFabric implements DedicatedServerModInitializer {
 	public static final String[] dadabase = new String[]
 			{
 					"I invented a new word! Plagiarism!",
@@ -59,7 +60,7 @@ public class DailyDadFabric implements ModInitializer {
 	public static JokeConfig config;
 
 	@Override
-	public void onInitialize() {
+	public void onInitializeServer() {
 		ConfigHolder<JokeConfig> holder = AutoConfig.register(JokeConfig.class, Toml4jConfigSerializer::new);
 		config = holder.getConfig();
 		try {
