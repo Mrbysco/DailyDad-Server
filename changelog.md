@@ -1,1 +1,1 @@
-* Initial update to 1.21
+* Fix mixin crash on Fabric
