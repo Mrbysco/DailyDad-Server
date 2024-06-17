@@ -15,7 +15,7 @@
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "server": [
       "com.mrbysco.dailydadserver.DailyDadFabric"
     ],
     "modmenu": [
