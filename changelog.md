@@ -1,1 +1,1 @@
-* Fix startup crash on fabric due to entrypoint mistake
+* Initial update to 1.21.4

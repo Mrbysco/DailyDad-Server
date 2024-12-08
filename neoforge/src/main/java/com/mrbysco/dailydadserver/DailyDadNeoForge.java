@@ -3,7 +3,7 @@ package com.mrbysco.dailydadserver;
 import com.mrbysco.dailydadserver.commands.ForgeDadCommands;
 import com.mrbysco.dailydadserver.config.JokeConfig;
 import com.mrbysco.dailydadserver.handler.JokeHandler;
-import net.neoforged.api.distmarker.Dist;
+import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -16,7 +16,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEven
 @Mod(Constants.MOD_ID)
 public class DailyDadNeoForge {
 
-	public DailyDadNeoForge(IEventBus eventBus, Dist dist, ModContainer container) {
+	public DailyDadNeoForge(IEventBus eventBus, ModContainer container) {
 		container.registerConfig(Type.COMMON, JokeConfig.serverSpec);
 		eventBus.register(JokeConfig.class);
 
@@ -26,11 +26,13 @@ public class DailyDadNeoForge {
 	}
 
 	public void onLoggedIn(PlayerLoggedInEvent event) {
-		JokeHandler.onLoggedIn(event.getEntity());
+		if (event.getEntity() instanceof ServerPlayer serverPlayer)
+			JokeHandler.onLoggedIn(serverPlayer);
 	}
 
 	public void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {
-		JokeHandler.onPlayerRespawn(event.getEntity(), event.isEndConquered());
+		if (event.getEntity() instanceof ServerPlayer serverPlayer)
+			JokeHandler.onPlayerRespawn(serverPlayer, event.isEndConquered());
 	}
 
 	public void onCommandRegister(RegisterCommandsEvent event) {

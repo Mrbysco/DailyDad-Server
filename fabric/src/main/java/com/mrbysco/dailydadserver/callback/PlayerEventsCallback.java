@@ -2,8 +2,8 @@ package com.mrbysco.dailydadserver.callback;
 
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 
 public interface PlayerEventsCallback {
 	Event<Login> LOGIN_EVENT = EventFactory.createArrayBacked(Login.class, (listeners) -> (player) -> {
@@ -19,7 +19,7 @@ public interface PlayerEventsCallback {
 	});
 
 	interface Login {
-		InteractionResult onLogin(Player player);
+		InteractionResult onLogin(ServerPlayer player);
 	}
 
 	Event<Respawn> RESPAWN_EVENT = EventFactory.createArrayBacked(Respawn.class, (listeners) -> (player, endConquered) -> {
@@ -35,6 +35,6 @@ public interface PlayerEventsCallback {
 	});
 
 	interface Respawn {
-		InteractionResult respawn(Player player, boolean endConquered);
+		InteractionResult respawn(ServerPlayer player, boolean endConquered);
 	}
 }
