@@ -1,6 +1,6 @@
 package com.mrbysco.dailydadserver;
 
-import com.mrbysco.dailydadserver.commands.ForgeDadCommands;
+import com.mrbysco.dailydadserver.commands.NeoForgeDadCommands;
 import com.mrbysco.dailydadserver.config.JokeConfig;
 import com.mrbysco.dailydadserver.handler.JokeHandler;
 import net.minecraft.server.level.ServerPlayer;
@@ -36,6 +36,6 @@ public class DailyDadNeoForge {
 	}
 
 	public void onCommandRegister(RegisterCommandsEvent event) {
-		ForgeDadCommands.initializeCommands(event.getDispatcher());
+		NeoForgeDadCommands.initializeCommands(event.getDispatcher());
 	}
 }

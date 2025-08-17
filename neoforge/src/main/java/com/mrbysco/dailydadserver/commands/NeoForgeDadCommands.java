@@ -9,11 +9,11 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
 
-public class ForgeDadCommands {
+public class NeoForgeDadCommands {
 	public static void initializeCommands(CommandDispatcher<CommandSourceStack> dispatcher) {
 		final LiteralArgumentBuilder<CommandSourceStack> root = Commands.literal("dailydad");
 		root.requires((sourceStack) -> sourceStack.hasPermission(2))
-				.then(Commands.literal("joke").executes(ForgeDadCommands::sendJoke));
+				.then(Commands.literal("joke").executes(NeoForgeDadCommands::sendJoke));
 		dispatcher.register(root);
 	}
 
