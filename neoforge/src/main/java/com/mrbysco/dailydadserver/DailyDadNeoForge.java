@@ -17,7 +17,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEven
 public class DailyDadNeoForge {
 
 	public DailyDadNeoForge(IEventBus eventBus, ModContainer container) {
-		container.registerConfig(Type.COMMON, JokeConfig.serverSpec);
+		container.registerConfig(Type.COMMON, JokeConfig.commonSpec);
 		eventBus.register(JokeConfig.class);
 
 		NeoForge.EVENT_BUS.addListener(this::onCommandRegister);

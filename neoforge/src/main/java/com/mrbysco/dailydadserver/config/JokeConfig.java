@@ -63,12 +63,12 @@ public class JokeConfig {
 		}
 	}
 
-	public static final ModConfigSpec serverSpec;
+	public static final ModConfigSpec commonSpec;
 	public static final Server SERVER;
 
 	static {
 		final Pair<Server, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Server::new);
-		serverSpec = specPair.getRight();
+		commonSpec = specPair.getRight();
 		SERVER = specPair.getLeft();
 	}
 
