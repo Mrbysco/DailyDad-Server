@@ -3,7 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id "net.neoforged.moddev" version "2.0.107"
+    id "net.neoforged.moddev" version "2.0.119"
     id 'net.darkhax.curseforgegradle'
     id 'com.modrinth.minotaur'
 }
@@ -25,7 +25,6 @@ neoForge {
     if (at.exists()) {
         accessTransformers.add(at.absolutePath)
     }
-    addModdingDependenciesTo(sourceSets["test"])
 
     runs {
         configureEach { model ->
