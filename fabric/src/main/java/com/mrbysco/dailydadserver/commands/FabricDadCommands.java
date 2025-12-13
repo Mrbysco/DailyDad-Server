@@ -12,7 +12,7 @@ import net.minecraft.network.chat.Component;
 public class FabricDadCommands {
 	public static void initializeCommands(CommandDispatcher<CommandSourceStack> dispatcher) {
 		final LiteralArgumentBuilder<CommandSourceStack> root = Commands.literal("dailydad");
-		root.requires((sourceStack) -> sourceStack.hasPermission(2))
+		root.requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
 				.then(Commands.literal("joke").executes(FabricDadCommands::sendJoke));
 		dispatcher.register(root);
 	}
