@@ -1,5 +1,6 @@
 package com.mrbysco.dailydadserver.handler;
 
+import com.mrbysco.dailydadserver.config.JokeConfig;
 import com.mrbysco.dailydadserver.platform.Services;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -15,7 +16,7 @@ public class JokeHandler {
 	}
 
 	public static void onPlayerRespawn(ServerPlayer player, boolean endConquered) {
-		if (Services.PLATFORM.getJokeUponRespawn() && !endConquered) {
+		if (JokeConfig.SERVER.jokeUponRespawn.get() && !endConquered) {
 			Services.PLATFORM.getJokeAsync((joke, component) ->
 					player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component)));
 		}

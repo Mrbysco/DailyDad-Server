@@ -1,8 +1,5 @@
 package com.mrbysco.dailydadserver.config;
 
-import com.mrbysco.dailydadserver.Constants;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.event.config.ModConfigEvent;
 import net.neoforged.neoforge.common.ModConfigSpec;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -70,15 +67,5 @@ public class JokeConfig {
 		final Pair<Server, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Server::new);
 		commonSpec = specPair.getRight();
 		SERVER = specPair.getLeft();
-	}
-
-	@SubscribeEvent
-	public static void onLoad(final ModConfigEvent.Loading configEvent) {
-		Constants.LOGGER.debug("Loaded Daily Dad's server config file {}", configEvent.getConfig().getFileName());
-	}
-
-	@SubscribeEvent
-	public static void onFileChange(ModConfigEvent.Reloading configEvent) {
-		Constants.LOGGER.warn("Daily Dad's server config just got changed on the file system!");
 	}
 }

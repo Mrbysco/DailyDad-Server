@@ -1,7 +1,7 @@
 package com.mrbysco.dailydadserver.jokes;
 
 import com.mrbysco.dailydadserver.Constants;
-import com.mrbysco.dailydadserver.platform.Services;
+import com.mrbysco.dailydadserver.config.JokeConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -74,7 +74,7 @@ public class DadAbase {
 	}
 
 	public static String getInternalDadJoke() {
-		List<? extends String> internalDadabase = Services.PLATFORM.getInternalDadabase();
+		List<? extends String> internalDadabase = JokeConfig.SERVER.internal_dadabase.get();
 		return internalDadabase.isEmpty() ? "" : internalDadabase.get(random.nextInt(internalDadabase.size()));
 	}
 }

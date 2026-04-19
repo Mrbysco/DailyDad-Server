@@ -4,7 +4,6 @@ import com.mrbysco.dailydadserver.commands.NeoForgeDadCommands;
 import com.mrbysco.dailydadserver.config.JokeConfig;
 import com.mrbysco.dailydadserver.handler.JokeHandler;
 import net.minecraft.server.level.ServerPlayer;
-import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig.Type;
@@ -16,9 +15,8 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEven
 @Mod(Constants.MOD_ID)
 public class DailyDadNeoForge {
 
-	public DailyDadNeoForge(IEventBus eventBus, ModContainer container) {
+	public DailyDadNeoForge(ModContainer container) {
 		container.registerConfig(Type.COMMON, JokeConfig.commonSpec);
-		eventBus.register(JokeConfig.class);
 
 		NeoForge.EVENT_BUS.addListener(this::onCommandRegister);
 		NeoForge.EVENT_BUS.addListener(this::onLoggedIn);
