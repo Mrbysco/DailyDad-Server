@@ -19,6 +19,13 @@ public class FabricPlatformHelper implements IPlatformHelper {
 	}
 
 	@Override
+	public boolean useInternalJokes() {
+		if (DailyDadFabric.config == null)
+			DailyDadFabric.config = AutoConfig.getConfigHolder(JokeConfig.class).getConfig();
+		return DailyDadFabric.config.server.useInternalDadabase;
+	}
+
+	@Override
 	public boolean getJokeUponRespawn() {
 		if (DailyDadFabric.config == null)
 			DailyDadFabric.config = AutoConfig.getConfigHolder(JokeConfig.class).getConfig();

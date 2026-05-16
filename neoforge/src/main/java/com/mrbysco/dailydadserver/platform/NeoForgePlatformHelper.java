@@ -15,6 +15,11 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
 	}
 
 	@Override
+	public boolean useInternalJokes() {
+		return JokeConfig.SERVER.useInternalDadabase.get();
+	}
+	
+	@Override
 	public boolean getJokeUponRespawn() {
 		return JokeConfig.SERVER.jokeUponRespawn.get();
 	}

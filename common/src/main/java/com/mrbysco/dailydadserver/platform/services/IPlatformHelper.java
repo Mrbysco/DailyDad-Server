@@ -14,6 +14,13 @@ public interface IPlatformHelper {
 	List<? extends String> getInternalDadabase();
 
 	/**
+	 * Should the internal database of jokes be used instead of the API?
+	 *
+	 * @return the useInternalDadabase config option
+	 */
+	boolean useInternalJokes();
+
+	/**
 	 * Should a joke be told upon death?
 	 *
 	 * @return the jokeUponRespawn config option

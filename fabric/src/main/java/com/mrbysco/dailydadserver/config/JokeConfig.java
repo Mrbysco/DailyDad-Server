@@ -19,6 +19,9 @@ public class JokeConfig implements ConfigData {
 		@Comment("The internal dad-abase of jokes for in case the mod is unable to reach the API")
 		public List<String> internal_dadabase = List.of(DailyDadFabric.dadabase);
 
+		@Comment("Whether to use the internal dad-abase of jokes instead of the API [default: false]")
+		public boolean useInternalDadabase = false;
+
 		@Comment("Should a joke be told upon death [default: false]")
 		public boolean jokeUponRespawn = false;
 	}

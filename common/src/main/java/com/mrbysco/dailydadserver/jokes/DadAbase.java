@@ -26,6 +26,9 @@ public class DadAbase {
 	public static final HttpClient CLIENT = HttpClient.newBuilder().connectTimeout(Duration.ofMillis(5 * 1000)).version(HttpClient.Version.HTTP_2).build();
 
 	public static String getDadJoke() {
+		if (Services.PLATFORM.useInternalJokes()) {
+			return getInternalDadJoke();
+		}
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(DAD_JOKE_URL))
 				.header("Accept-Encoding", "gzip")
 				.header("Accept", "text/plain")
