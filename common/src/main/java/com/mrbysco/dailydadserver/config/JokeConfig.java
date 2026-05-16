@@ -6,11 +6,12 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.List;
 
 public class JokeConfig {
-	public static class Server {
+	public static class Common {
 		public final ModConfigSpec.ConfigValue<List<? extends String>> internal_dadabase;
+		public final ModConfigSpec.BooleanValue useInternalDadabase;
 		public final ModConfigSpec.BooleanValue jokeUponRespawn;
 
-		Server(ModConfigSpec.Builder builder) {
+		Common(ModConfigSpec.Builder builder) {
 			builder.comment("Server settings")
 					.push("server");
 
@@ -52,6 +53,10 @@ public class JokeConfig {
 					.comment("The internal dad-abase of jokes for in case the mod is unable to reach the API")
 					.defineList("internal_dadabase", List.of(dadabase), String::new, o -> (o instanceof String));
 
+			useInternalDadabase = builder
+					.comment("Whether to use the internal dad-abase of jokes instead of the API [default: false]")
+					.define("useInternalDadabase", false);
+
 			jokeUponRespawn = builder
 					.comment("Should a joke be told upon death [default: false]")
 					.define("jokeUponRespawn", false);
@@ -61,11 +66,11 @@ public class JokeConfig {
 	}
 
 	public static final ModConfigSpec commonSpec;
-	public static final Server SERVER;
+	public static final Common COMMON;
 
 	static {
-		final Pair<Server, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Server::new);
+		final Pair<Common, ModConfigSpec> specPair = new ModConfigSpec.Builder().configure(Common::new);
 		commonSpec = specPair.getRight();
-		SERVER = specPair.getLeft();
+		COMMON = specPair.getLeft();
 	}
 }

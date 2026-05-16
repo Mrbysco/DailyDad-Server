@@ -26,6 +26,9 @@ public class DadAbase {
 	public static final HttpClient CLIENT = HttpClient.newBuilder().connectTimeout(Duration.ofMillis(5 * 1000)).version(HttpClient.Version.HTTP_2).build();
 
 	public static String getDadJoke() {
+		if (JokeConfig.COMMON.useInternalDadabase.get()) {
+			return getInternalDadJoke();
+		}
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(DAD_JOKE_URL))
 				.header("Accept-Encoding", "gzip")
 				.header("Accept", "text/plain")
@@ -74,7 +77,7 @@ public class DadAbase {
 	}
 
 	public static String getInternalDadJoke() {
-		List<? extends String> internalDadabase = JokeConfig.SERVER.internal_dadabase.get();
+		List<? extends String> internalDadabase = JokeConfig.COMMON.internal_dadabase.get();
 		return internalDadabase.isEmpty() ? "" : internalDadabase.get(random.nextInt(internalDadabase.size()));
 	}
 }

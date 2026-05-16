@@ -16,7 +16,7 @@ public class JokeHandler {
 	}
 
 	public static void onPlayerRespawn(ServerPlayer player, boolean endConquered) {
-		if (JokeConfig.SERVER.jokeUponRespawn.get() && !endConquered) {
+		if (JokeConfig.COMMON.jokeUponRespawn.get() && !endConquered) {
 			Services.PLATFORM.getJokeAsync((joke, component) ->
 					player.sendSystemMessage(Component.literal("<DailyDad> ").withStyle(ChatFormatting.GOLD).append(component)));
 		}
