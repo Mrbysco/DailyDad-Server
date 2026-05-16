@@ -13,6 +13,7 @@ import java.util.List;
 public class JokeConfig {
 	public static class Server {
 		public final ConfigValue<List<? extends String>> internal_dadabase;
+		public final BooleanValue useInternalDadabase;
 		public final BooleanValue jokeUponRespawn;
 
 		Server(ForgeConfigSpec.Builder builder) {
@@ -56,6 +57,10 @@ public class JokeConfig {
 			internal_dadabase = builder
 					.comment("The internal dad-abase of jokes for in case the mod is unable to reach the API")
 					.defineList("internal_dadabase", List.of(dadabase), o -> (o instanceof String));
+
+			useInternalDadabase = builder
+					.comment("Whether to use the internal dad-abase of jokes instead of the API [default: false]")
+					.define("useInternalDadabase", false);
 
 			jokeUponRespawn = builder
 					.comment("Should a joke be told upon death [default: false]")
