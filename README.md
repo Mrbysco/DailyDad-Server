@@ -13,7 +13,7 @@ during which it'll get a random dad-joke from an internal dadabase.
 
 ## License ##
 * Daily Dad Server licensed under the MIT license
-  - (c) 2021 Mrbysco
+  - (c) 2026 Mrbysco
   - [![License](https://img.shields.io/badge/License-MIT-red.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 ## Downloads ##
