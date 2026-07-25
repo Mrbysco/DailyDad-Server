@@ -1,1 +1,1 @@
-* Add config option `useInternalDadabase` which forces the mod to only use jokes from the list in the `internal_dadabase` config option
+* Initial update to 26.2
